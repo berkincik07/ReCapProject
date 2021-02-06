@@ -17,9 +17,16 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+        public List<Car> AddCar()
+        {
+            return _carDal.GetCars(c => c.DailyPrice > 0 && c.Description.Length > 2);
+        }
+
         public List<Car> getAll()
         {
             return _carDal.GetCars();
         }
+
+        
     }
 }
